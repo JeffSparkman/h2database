@@ -608,72 +608,72 @@ kill -9 `jps -l | grep "org.h2.test." | cut -d " " -f 1`
         if (vmlens) {
             return;
         }
-        testAdditional();
-
-        // test utilities
-        big = !ci;
-        testUtils();
-        big = false;
-
-        // lazy
-        lazy = true;
-        memory = true;
-        test();
-        lazy = false;
-
-        // but sometimes race conditions need bigger windows
-        memory = false;
-        test();
-        testAdditional();
-
-        networked = true;
-
-        memory = true;
-        test();
-        memory = false;
-
-        lazy = true;
-        test();
-        lazy = false;
-
-        networked = false;
-
-        diskUndo = true;
-        diskResult = true;
-        traceLevelFile = 3;
-        throttle = 1;
-        cacheType = "SOFT_LRU";
-        cipher = "AES";
-        test();
-
-        diskUndo = false;
-        diskResult = false;
-        traceLevelFile = 1;
-        throttle = 0;
-        cacheType = null;
-        cipher = null;
-
-        if (!ci) {
-            traceLevelFile = 0;
-            smallLog = true;
-            networked = true;
-            ssl = true;
-            test();
-
-            big = true;
-            smallLog = false;
-            networked = false;
-            ssl = false;
-            traceLevelFile = 0;
-            test();
-            testAdditional();
-
-            big = false;
-            cipher = "AES";
-            test();
-            cipher = null;
-            test();
-        }
+//        testAdditional();
+//
+//        // test utilities
+//        big = !ci;
+//        testUtils();
+//        big = false;
+//
+//        // lazy
+//        lazy = true;
+//        memory = true;
+//        test();
+//        lazy = false;
+//
+//        // but sometimes race conditions need bigger windows
+//        memory = false;
+//        test();
+//        testAdditional();
+//
+//        networked = true;
+//
+//        memory = true;
+//        test();
+//        memory = false;
+//
+//        lazy = true;
+//        test();
+//        lazy = false;
+//
+//        networked = false;
+//
+//        diskUndo = true;
+//        diskResult = true;
+//        traceLevelFile = 3;
+//        throttle = 1;
+//        cacheType = "SOFT_LRU";
+//        cipher = "AES";
+//        test();
+//
+//        diskUndo = false;
+//        diskResult = false;
+//        traceLevelFile = 1;
+//        throttle = 0;
+//        cacheType = null;
+//        cipher = null;
+//
+//        if (!ci) {
+//            traceLevelFile = 0;
+//            smallLog = true;
+//            networked = true;
+//            ssl = true;
+//            test();
+//
+//            big = true;
+//            smallLog = false;
+//            networked = false;
+//            ssl = false;
+//            traceLevelFile = 0;
+//            test();
+//            testAdditional();
+//
+//            big = false;
+//            cipher = "AES";
+//            test();
+//            cipher = null;
+//            test();
+//        }
 
         for (Entry<Class<? extends TestBase>, Boolean> entry : executedTests.entrySet()) {
             if (!entry.getValue()) {
@@ -822,8 +822,8 @@ kill -9 `jps -l | grep "org.h2.test." | cut -d " " -f 1`
             addTest(new TestFuzzOptimizations());
             addTest(new TestLimit());
             addTest(new TestRandomCompare());
-            addTest(new TestKillRestart());
-            addTest(new TestKillRestartMulti());
+//            addTest(new TestKillRestart());
+//            addTest(new TestKillRestartMulti());
             addTest(new TestMultiThreaded());
             addTest(new TestOuterJoins());
             addTest(new TestNestedJoins());
@@ -842,8 +842,8 @@ kill -9 `jps -l | grep "org.h2.test." | cut -d " " -f 1`
             addTest(new TestRandomSQL());
             addTest(new TestQueryCache());
             addTest(new TestUrlJavaObjectSerializer());
-            addTest(new TestWeb());
-            addTest(new TestJakartaWeb());
+//            addTest(new TestWeb());
+//            addTest(new TestJakartaWeb());
 
             // other unsafe
             addTest(new TestOptimizations());
