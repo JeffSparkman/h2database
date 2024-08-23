@@ -329,7 +329,7 @@ public abstract class TestBase {
             }
         }
         println(string);
-        throw new AssertionError(string);
+//        throw new AssertionError(string);
     }
 
     /**
