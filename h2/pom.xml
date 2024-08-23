@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.h2database</groupId>
-  <artifactId>h2</artifactId>
+  <artifactId>h2-lite</artifactId>
   <version>2.3.232</version>
   <packaging>jar</packaging>
   <name>H2 Database Engine</name>
@@ -223,10 +223,10 @@
           <include>META-INF/**</include>
         </includes>
       </resource>
-      <resource>
+      <!-- resource>
         <directory>src/java21/precompiled</directory>
         <targetPath>META-INF/versions/21</targetPath>
-      </resource>
+      </resource -->
     </resources>
     <testResources>
   <testResource>
@@ -247,15 +247,15 @@
         <version>3.1.2</version>
         <configuration>
           <archive>
-            <manifest>
+            <!--manifest>
               <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
               <mainClass>org.h2.tools.Console</mainClass>
-            </manifest>
-            <manifestEntries>
+            </manifest -->
+            <!-- manifestEntries>
               <Automatic-Module-Name>com.h2database</Automatic-Module-Name>
               <Multi-Release>true</Multi-Release>
               <Premain-Class>org.h2.util.Profiler</Premain-Class>
-            </manifestEntries>
+            </manifestEntries -->
           </archive>
         </configuration>
       </plugin>
@@ -276,6 +276,28 @@
               </sources>
             </configuration>
           </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>3.0.0</version>
+        <configuration>
+            <excludes>
+                <exclude>org/h2/server/**</exclude>
+                <exclude>org/h2/mode/PgCatalogSchema.java</exclude>
+                <exclude>org/h2/mode/PgCatalogTable.java</exclude>
+                <exclude>org/h2/util/Profiler.java</exclude>
+                <exclude>org/h2/test/**</exclude>
+            </excludes>
+        </configuration>
+        <executions>
+            <execution>
+                <id>attach-sources</id>
+                <goals>
+                    <goal>jar</goal>
+                </goals>
+            </execution>
         </executions>
       </plugin>
       <plugin>
