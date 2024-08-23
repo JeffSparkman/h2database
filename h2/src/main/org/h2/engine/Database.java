@@ -66,10 +66,10 @@ import org.h2.table.TableSynonym;
 import org.h2.table.TableType;
 import org.h2.table.TableView;
 import org.h2.tools.DeleteDbFiles;
-import org.h2.tools.Server;
+//import org.h2.tools.Server;
 import org.h2.util.JdbcUtils;
 import org.h2.util.MathUtils;
-import org.h2.util.NetUtils;
+//import org.h2.util.NetUtils;
 import org.h2.util.NetworkConnectionInfo;
 import org.h2.util.SmallLRUCache;
 import org.h2.util.SourceCompiler;
@@ -193,7 +193,7 @@ public final class Database implements DataHandler, CastDataProvider {
     private final boolean closeAtVmShutdown;
     private final boolean autoServerMode;
     private final int autoServerPort;
-    private Server server;
+//    private Server server;
     private HashMap<TableLinkConnection, TableLinkConnection> linkConnections;
     private final TempFileDeleter tempFileDeleter = TempFileDeleter.getInstance();
     private int compactMode;
@@ -316,7 +316,7 @@ public final class Database implements DataHandler, CastDataProvider {
                     lock = new FileLock(traceSystem, lockFileName, Constants.LOCK_SLEEP);
                     lock.lock(fileLockMethod);
                     if (autoServerMode) {
-                        startServer(lock.getUniqueId());
+//                        startServer(lock.getUniqueId());
                     }
                 }
                 deleteOldTempFiles();
@@ -391,7 +391,7 @@ public final class Database implements DataHandler, CastDataProvider {
                 }
                 if (e instanceof DbException) {
                     if (((DbException) e).getErrorCode() == ErrorCode.DATABASE_ALREADY_OPEN_1) {
-                        stopServer();
+//                        stopServer();
                     } else {
                         // only write if the database is not already in use
                         trace.error(e, "opening {0}", databaseName);
@@ -482,7 +482,7 @@ public final class Database implements DataHandler, CastDataProvider {
                 powerOffCount = -1;
                 store.closeImmediately();
                 if (lock != null) {
-                    stopServer();
+//                    stopServer();
                     // allow testing shutdown
                     lock.unlock();
                     lock = null;
@@ -667,35 +667,35 @@ public final class Database implements DataHandler, CastDataProvider {
         }
     }
 
-    private void startServer(String key) {
-        try {
-            server = Server.createTcpServer(
-                    "-tcpPort", Integer.toString(autoServerPort),
-                    "-tcpAllowOthers",
-                    "-tcpDaemon",
-                    "-key", key, databaseName);
-            server.start();
-        } catch (SQLException e) {
-            throw DbException.convert(e);
-        }
-        String localAddress = NetUtils.getLocalAddress();
-        String address = localAddress + ":" + server.getPort();
-        lock.setProperty("server", address);
-        String hostName = NetUtils.getHostName(localAddress);
-        lock.setProperty("hostName", hostName);
-        lock.save();
-    }
-
-    private void stopServer() {
-        if (server != null) {
-            Server s = server;
-            // avoid calling stop recursively
-            // because stopping the server will
-            // try to close the database as well
-            server = null;
-            s.stop();
-        }
-    }
+//    private void startServer(String key) {
+//        try {
+//            server = Server.createTcpServer(
+//                    "-tcpPort", Integer.toString(autoServerPort),
+//                    "-tcpAllowOthers",
+//                    "-tcpDaemon",
+//                    "-key", key, databaseName);
+//            server.start();
+//        } catch (SQLException e) {
+//            throw DbException.convert(e);
+//        }
+//        String localAddress = NetUtils.getLocalAddress();
+//        String address = localAddress + ":" + server.getPort();
+//        lock.setProperty("server", address);
+//        String hostName = NetUtils.getHostName(localAddress);
+//        lock.setProperty("hostName", hostName);
+//        lock.save();
+//    }
+//
+//    private void stopServer() {
+//        if (server != null) {
+//            Server s = server;
+//            // avoid calling stop recursively
+//            // because stopping the server will
+//            // try to close the database as well
+//            server = null;
+//            s.stop();
+//        }
+//    }
 
     private void recompileInvalidViews() {
         boolean atLeastOneRecompiledSuccessfully;
@@ -1189,7 +1189,7 @@ public final class Database implements DataHandler, CastDataProvider {
                 return;
             }
             closing = true;
-            stopServer();
+//            stopServer();
             if (!userSessions.isEmpty()) {
                 assert fromShutdownHook;
                 trace.info("closing {0} from shutdown hook", databaseName);
