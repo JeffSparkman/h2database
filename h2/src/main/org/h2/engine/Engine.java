@@ -169,14 +169,14 @@ public final class Engine {
             session.setOldInformationSchema(true);
         }
         if (ci.getProperty("JMX", false)) {
-            try {
-                Utils.callStaticMethod(
-                        "org.h2.jmx.DatabaseInfo.registerMBean", ci, database);
-            } catch (Exception e) {
-                database.removeSession(session);
-                throw DbException.get(ErrorCode.FEATURE_NOT_SUPPORTED_1, e, "JMX");
-            }
-            JMX = true;
+//            try {
+//                Utils.callStaticMethod(
+//                        "org.h2.jmx.DatabaseInfo.registerMBean", ci, database);
+//            } catch (Exception e) {
+//                database.removeSession(session);
+//                throw DbException.get(ErrorCode.FEATURE_NOT_SUPPORTED_1, e, "JMX");
+//            }
+//            JMX = true;
         }
         return session;
     }
@@ -325,7 +325,7 @@ public final class Engine {
     static void close(String name) {
         if (JMX) {
             try {
-                Utils.callStaticMethod("org.h2.jmx.DatabaseInfo.unregisterMBean", name);
+//                Utils.callStaticMethod("org.h2.jmx.DatabaseInfo.unregisterMBean", name);
             } catch (Exception e) {
                 throw DbException.get(ErrorCode.FEATURE_NOT_SUPPORTED_1, e, "JMX");
             }
