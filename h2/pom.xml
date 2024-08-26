@@ -246,6 +246,9 @@
         <artifactId>maven-jar-plugin</artifactId>
         <version>3.1.2</version>
         <configuration>
+          <excludes>
+            <exclude>org/h2/test/**</exclude>
+          </excludes>
           <archive>
             <!--manifest>
               <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
@@ -278,6 +281,39 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.13.0</version>
+            <configuration>
+                <excludes>
+                    <exclude>org/h2/server/**</exclude>
+                    <exclude>org/h2/mode/PgCatalogSchema.java</exclude>
+                    <exclude>org/h2/mode/PgCatalogTable.java</exclude>
+                    <exclude>org/h2/util/Profiler.java</exclude>
+                </excludes>
+                <!--source>1.7</source>
+                <target>1.7</target -->
+            </configuration>
+            <executions>
+                <execution>
+                    <id>default-testCompile</id>
+                    <phase>test-compile</phase>
+                    <configuration>
+                    <testExcludes>
+                        <testExclude>**/org/h2/test/unit/TestServlet.java</testExclude>
+                        <testExclude>**/org/h2/test/unit/TestJakartaServlet.java</testExclude>
+                        <testExclude>**/org/h2/test/server/TestWeb.java</testExclude>
+                        <testExclude>**/org/h2/test/server/TestJakartaWeb.java</testExclude>
+                    </testExcludes>
+                        <!-- skip>true</skip -->
+                    </configuration>
+                    <goals>
+                        <goal>testCompile</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
