@@ -11,7 +11,7 @@ import java.math.BigInteger;
 import org.h2.engine.Constants;
 import org.h2.result.Row;
 import org.h2.store.Data;
-import org.h2.util.Profiler;
+//import org.h2.util.Profiler;
 import org.h2.value.Value;
 
 /**
@@ -77,7 +77,7 @@ public class MemoryFootprint {
      * @return the number of bytes required
      */
     public static long getObjectSize(Object o) {
-        Instrumentation inst = Profiler.getInstrumentation();
+        Instrumentation inst = null; // Profiler.getInstrumentation();
         return inst == null ? 0 : inst.getObjectSize(o);
     }
 

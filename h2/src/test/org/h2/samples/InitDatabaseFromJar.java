@@ -12,7 +12,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import org.h2.tools.RunScript;
+//import org.h2.tools.RunScript;
 
 /**
  * In this example a database is initialized from compressed script in a jar
@@ -57,7 +57,7 @@ public class InitDatabaseFromJar {
                     + getClass().getPackage().getName());
         } else {
             Connection conn = DriverManager.getConnection("jdbc:h2:mem:test");
-            RunScript.execute(conn, new InputStreamReader(in));
+//            RunScript.execute(conn, new InputStreamReader(in));
             Statement stat = conn.createStatement();
             ResultSet rs = stat.executeQuery("SELECT * FROM TEST");
             while (rs.next()) {

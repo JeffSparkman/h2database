@@ -23,8 +23,8 @@ import org.h2.store.FileStoreInputStream;
 import org.h2.store.FileStoreOutputStream;
 import org.h2.store.fs.FileUtils;
 import org.h2.tools.CompressTool;
-import org.h2.tools.RunScript;
-import org.h2.tools.Script;
+//import org.h2.tools.RunScript;
+//import org.h2.tools.Script;
 
 /**
  * This sample application shows how to manually
@@ -58,23 +58,23 @@ public class CreateScriptFile {
 
         Class.forName("org.h2.Driver");
         Connection conn = DriverManager.getConnection(url, user, dbPassword);
-        RunScript.main(
-                "-url", url,
-                "-user", user, "-password", dbPassword,
-                "-script", file,
-                "-options",
-                "compression", compressionAlgorithm,
-                "cipher", cipher,
-                "password", "'" + filePassword + "'"
-        );
-        Script.main(
-                "-url", url,
-                "-user", user, "-password", dbPassword,
-                "-script", file,
-                "-options",
-                "compression", compressionAlgorithm,
-                "cipher", cipher, "password", "'" + filePassword + "'"
-        );
+//        RunScript.main(
+//                "-url", url,
+//                "-user", user, "-password", dbPassword,
+//                "-script", file,
+//                "-options",
+//                "compression", compressionAlgorithm,
+//                "cipher", cipher,
+//                "password", "'" + filePassword + "'"
+//        );
+//        Script.main(
+//                "-url", url,
+//                "-user", user, "-password", dbPassword,
+//                "-script", file,
+//                "-options",
+//                "compression", compressionAlgorithm,
+//                "cipher", cipher, "password", "'" + filePassword + "'"
+//        );
         conn.close();
 
         LineNumberReader r = openScriptReader(file,

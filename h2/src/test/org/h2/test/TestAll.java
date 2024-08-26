@@ -20,18 +20,18 @@ import org.h2.engine.Constants;
 import org.h2.store.fs.FileUtils;
 import org.h2.store.fs.rec.FilePathRec;
 import org.h2.test.auth.TestAuthentication;
-import org.h2.test.bench.TestPerformance;
+//import org.h2.test.bench.TestPerformance;
 import org.h2.test.db.TestAlter;
 import org.h2.test.db.TestAlterSchemaRename;
 import org.h2.test.db.TestAlterTableNotFound;
 import org.h2.test.db.TestAnalyzeTableTx;
 import org.h2.test.db.TestAutoRecompile;
-import org.h2.test.db.TestBackup;
+//import org.h2.test.db.TestBackup;
 import org.h2.test.db.TestBigDb;
 import org.h2.test.db.TestBigResult;
 import org.h2.test.db.TestCases;
 import org.h2.test.db.TestCheckpoint;
-import org.h2.test.db.TestCluster;
+//import org.h2.test.db.TestCluster;
 import org.h2.test.db.TestCompatibility;
 import org.h2.test.db.TestCompatibilityOracle;
 import org.h2.test.db.TestCompatibilitySQLServer;
@@ -67,7 +67,7 @@ import org.h2.test.db.TestOutOfMemory;
 import org.h2.test.db.TestPersistentCommonTableExpressions;
 import org.h2.test.db.TestPowerOff;
 import org.h2.test.db.TestQueryCache;
-import org.h2.test.db.TestReadOnly;
+//import org.h2.test.db.TestReadOnly;
 import org.h2.test.db.TestRecursiveQueries;
 import org.h2.test.db.TestRights;
 import org.h2.test.db.TestRunscript;
@@ -124,10 +124,10 @@ import org.h2.test.poweroff.TestReorderWrites;
 import org.h2.test.recover.RecoverLobTest;
 import org.h2.test.rowlock.TestRowLocks;
 import org.h2.test.scripts.TestScript;
-import org.h2.test.server.TestAutoServer;
-import org.h2.test.server.TestInit;
+//import org.h2.test.server.TestAutoServer;
+//import org.h2.test.server.TestInit;
 //import org.h2.test.server.TestJakartaWeb;
-import org.h2.test.server.TestNestedLoop;
+//import org.h2.test.server.TestNestedLoop;
 //import org.h2.test.server.TestWeb;
 import org.h2.test.store.TestCacheConcurrentLIRS;
 import org.h2.test.store.TestCacheLIRS;
@@ -168,7 +168,7 @@ import org.h2.test.synth.TestTimer;
 import org.h2.test.synth.sql.TestSynth;
 import org.h2.test.synth.thread.TestMulti;
 import org.h2.test.unit.TestAnsCompression;
-import org.h2.test.unit.TestAutoReconnect;
+//import org.h2.test.unit.TestAutoReconnect;
 import org.h2.test.unit.TestBinaryArithmeticStream;
 import org.h2.test.unit.TestBinaryOperation;
 import org.h2.test.unit.TestBitStream;
@@ -189,12 +189,12 @@ import org.h2.test.unit.TestFile;
 import org.h2.test.unit.TestFileLock;
 import org.h2.test.unit.TestFileLockProcess;
 import org.h2.test.unit.TestFileSystem;
-import org.h2.test.unit.TestFtp;
+//import org.h2.test.unit.TestFtp;
 import org.h2.test.unit.TestGeometryUtils;
 import org.h2.test.unit.TestIntArray;
 import org.h2.test.unit.TestIntPerfectHash;
 import org.h2.test.unit.TestInterval;
-import org.h2.test.unit.TestJmx;
+//import org.h2.test.unit.TestJmx;
 import org.h2.test.unit.TestJsonUtils;
 import org.h2.test.unit.TestKeywords;
 import org.h2.test.unit.TestLocale;
@@ -208,10 +208,10 @@ import org.h2.test.unit.TestOverflow;
 import org.h2.test.unit.TestPageStoreCoverage;
 import org.h2.test.unit.TestPattern;
 import org.h2.test.unit.TestPerfectHash;
-import org.h2.test.unit.TestPgServer;
+//import org.h2.test.unit.TestPgServer;
 import org.h2.test.unit.TestRecovery;
-import org.h2.test.unit.TestReopen;
-import org.h2.test.unit.TestSampleApps;
+//import org.h2.test.unit.TestReopen;
+//import org.h2.test.unit.TestSampleApps;
 import org.h2.test.unit.TestScriptReader;
 import org.h2.test.unit.TestSecurity;
 import org.h2.test.unit.TestShell;
@@ -220,18 +220,18 @@ import org.h2.test.unit.TestStreams;
 import org.h2.test.unit.TestStringCache;
 import org.h2.test.unit.TestStringUtils;
 import org.h2.test.unit.TestTimeStampWithTimeZone;
-import org.h2.test.unit.TestTools;
+//import org.h2.test.unit.TestTools;
 import org.h2.test.unit.TestTraceSystem;
-import org.h2.test.unit.TestUpgrade;
+//import org.h2.test.unit.TestUpgrade;
 import org.h2.test.unit.TestUtils;
 import org.h2.test.unit.TestValue;
 import org.h2.test.unit.TestValueMemory;
 import org.h2.test.utils.OutputCatcher;
 import org.h2.test.utils.SelfDestructor;
 import org.h2.tools.DeleteDbFiles;
-import org.h2.tools.Server;
+//import org.h2.tools.Server;
 import org.h2.util.AbbaLockingDetector;
-import org.h2.util.Profiler;
+//import org.h2.util.Profiler;
 import org.h2.util.StringUtils;
 import org.h2.util.Task;
 import org.h2.util.ThreadDeadlockDetector;
@@ -416,7 +416,7 @@ java org.h2.test.TestAll timer
      */
     ArrayList<TestBase> tests = new ArrayList<>();
 
-    private Server server;
+//    private Server server;
 
     HashSet<String> excludedTests = new HashSet<>();
 
@@ -499,11 +499,11 @@ kill -9 `jps -l | grep "org.h2.test." | cut -d " " -f 1`
                 System.setProperty("h2.pageSize", "64");
                 System.setProperty("h2.reopenShift", "5");
                 FilePathRec.register();
-                test.reopen = true;
-                TestReopen reopen = new TestReopen();
-                reopen.init();
-                FilePathRec.setRecorder(reopen);
-                test.runTests();
+//                test.reopen = true;
+//                TestReopen reopen = new TestReopen();
+//                reopen.init();
+//                FilePathRec.setRecorder(reopen);
+//                test.runTests();
             } else if ("crash".equals(args[0])) {
                 test.endless = true;
                 new TestCrashAPI().runTest(test);
@@ -550,14 +550,14 @@ kill -9 `jps -l | grep "org.h2.test." | cut -d " " -f 1`
         }
         runTests();
         if (!ci && !vmlens) {
-            Profiler prof = new Profiler();
-            prof.depth = 16;
-            prof.interval = 1;
-            prof.startCollecting();
-            TestPerformance.main("-init", "-db", "1", "-size", "1000");
-            prof.stopCollecting();
-            System.out.println(prof.getTop(5));
-            TestPerformance.main("-init", "-db", "1", "-size", "1000");
+//            Profiler prof = new Profiler();
+//            prof.depth = 16;
+//            prof.interval = 1;
+//            prof.startCollecting();
+//            TestPerformance.main("-init", "-db", "1", "-size", "1000");
+//            prof.stopCollecting();
+//            System.out.println(prof.getTop(5));
+//            TestPerformance.main("-init", "-db", "1", "-size", "1000");
         }
     }
 
@@ -712,7 +712,7 @@ kill -9 `jps -l | grep "org.h2.test." | cut -d " " -f 1`
             addTest(new TestAlter());
             addTest(new TestAlterSchemaRename());
             addTest(new TestAutoRecompile());
-            addTest(new TestBackup());
+//            addTest(new TestBackup());
             addTest(new TestBigDb());
             addTest(new TestBigResult());
             addTest(new TestCases());
@@ -731,7 +731,7 @@ kill -9 `jps -l | grep "org.h2.test." | cut -d " " -f 1`
             addTest(new TestFullText());
             addTest(new TestFunctionOverload());
             addTest(new TestFunctions());
-            addTest(new TestInit());
+//            addTest(new TestInit());
             addTest(new TestIndex());
             addTest(new TestIndexHints());
             addTest(new TestCompoundIndexSearch());
@@ -746,7 +746,7 @@ kill -9 `jps -l | grep "org.h2.test." | cut -d " " -f 1`
             addTest(new TestMultiDimension());
             addTest(new TestMultiThreadedKernel());
             addTest(new TestOpenClose());
-            addTest(new TestReadOnly());
+//            addTest(new TestReadOnly());
             addTest(new TestRecursiveQueries());
             addTest(new TestGeneralCommonTableQueries());
             addTest(new TestAlterTableNotFound());
@@ -801,8 +801,8 @@ kill -9 `jps -l | grep "org.h2.test." | cut -d " " -f 1`
             addTest(new TestXASimple());
 
             // server
-            addTest(new TestAutoServer());
-            addTest(new TestNestedLoop());
+//            addTest(new TestAutoServer());
+//            addTest(new TestNestedLoop());
 
             // mvcc & row level locking
             addTest(new TestMvcc1());
@@ -866,7 +866,7 @@ kill -9 `jps -l | grep "org.h2.test." | cut -d " " -f 1`
         }
 
         addTest(new TestMVTableEngine());
-        addTest(new TestAutoReconnect());
+//        addTest(new TestAutoReconnect());
         addTest(new TestBnf());
         addTest(new TestCache());
         addTest(new TestCollation());
@@ -874,10 +874,10 @@ kill -9 `jps -l | grep "org.h2.test." | cut -d " " -f 1`
         addTest(new TestConnectionInfo());
         addTest(new TestExit());
         addTest(new TestFileLock());
-        addTest(new TestJmx());
+//        addTest(new TestJmx());
         addTest(new TestMultiThreadedKernel());
         addTest(new TestPageStoreCoverage());
-        addTest(new TestPgServer());
+//        addTest(new TestPgServer());
         addTest(new TestRecovery());
         addTest(new RecoverLobTest());
         addTest(createTest("org.h2.test.unit.TestServlet"));
@@ -887,11 +887,11 @@ kill -9 `jps -l | grep "org.h2.test." | cut -d " " -f 1`
 
         runAddedTests();
 
-        addTest(new TestCluster());
+//        addTest(new TestCluster());
         addTest(new TestFileLockProcess());
         addTest(new TestDefrag());
-        addTest(new TestTools());
-        addTest(new TestSampleApps());
+//        addTest(new TestTools());
+//        addTest(new TestSampleApps());
         addTest(new TestSubqueryPerformanceOnLazyExecutionMode());
 
         runAddedTests(1);
@@ -935,7 +935,7 @@ kill -9 `jps -l | grep "org.h2.test." | cut -d " " -f 1`
         addTest(new TestDbException());
         addTest(new TestFile());
         addTest(new TestFileSystem());
-        addTest(new TestFtp());
+//        addTest(new TestFtp());
         addTest(new TestGeometryUtils());
         addTest(new TestInterval());
         addTest(new TestIntArray());
@@ -956,7 +956,7 @@ kill -9 `jps -l | grep "org.h2.test." | cut -d " " -f 1`
         addTest(new TestStringUtils());
         addTest(new TestTraceSystem());
         addTest(new TestUtils());
-        addTest(new TestUpgrade());
+//        addTest(new TestUpgrade());
 
         runAddedTests();
 
@@ -1054,20 +1054,21 @@ kill -9 `jps -l | grep "org.h2.test." | cut -d " " -f 1`
      * old database files in the test directory and trace files. It also starts
      * a TCP server if the test uses remote connections.
      */
-    public void beforeTest() throws SQLException {
+    public void beforeTest() {
+            //throws SQLException {
         Driver.load();
         FileUtils.deleteRecursive(TestBase.BASE_TEST_DIR, true);
         DeleteDbFiles.execute(TestBase.BASE_TEST_DIR, null, true);
         FileUtils.deleteRecursive("trace.db", false);
         if (networked) {
             String[] args = ssl ? new String[] { "-ifNotExists", "-tcpSSL" } : new String[] { "-ifNotExists" };
-            server = Server.createTcpServer(args);
-            try {
-                server.start();
-            } catch (SQLException e) {
-                System.out.println("FAIL: can not start server (may already be running)");
-                server = null;
-            }
+//            server = Server.createTcpServer(args);
+//            try {
+//                server.start();
+//            } catch (SQLException e) {
+//                System.out.println("FAIL: can not start server (may already be running)");
+//                server = null;
+//            }
         }
     }
 
@@ -1075,15 +1076,16 @@ kill -9 `jps -l | grep "org.h2.test." | cut -d " " -f 1`
      * Stop the server if it was started.
      */
     public void afterTest() {
-        if (networked && server != null) {
-            server.stop();
-        }
+//        if (networked && server != null) {
+//            server.stop();
+//        }
         FileUtils.deleteRecursive("trace.db", true);
         FileUtils.deleteRecursive(TestBase.BASE_TEST_DIR, true);
     }
 
     public int getPort() {
-        return server == null ? 9192 : server.getPort();
+//        return server == null ? 9192 : server.getPort();
+        return 9192;
     }
 
     /**

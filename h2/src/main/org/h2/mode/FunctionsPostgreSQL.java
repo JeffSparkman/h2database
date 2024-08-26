@@ -21,7 +21,7 @@ import org.h2.expression.function.RandFunction;
 import org.h2.index.Index;
 import org.h2.message.DbException;
 import org.h2.schema.Schema;
-import org.h2.server.pg.PgServer;
+//import org.h2.server.pg.PgServer;
 import org.h2.table.Column;
 import org.h2.table.Table;
 import org.h2.util.StringUtils;
@@ -223,8 +223,9 @@ public final class FunctionsPostgreSQL extends ModeFunction {
             result = ValueInteger.get(1);
             break;
         case FORMAT_TYPE:
-            result = v0 != ValueNull.INSTANCE ? ValueVarchar.get(PgServer.formatType(v0.getInt())) //
-                    : ValueNull.INSTANCE;
+//            result = v0 != ValueNull.INSTANCE ? ValueVarchar.get(PgServer.formatType(v0.getInt())) //
+//                    : ValueNull.INSTANCE;
+            result = ValueNull.INSTANCE;
             break;
         case HAS_DATABASE_PRIVILEGE:
         case HAS_SCHEMA_PRIVILEGE:

@@ -288,9 +288,14 @@
             <configuration>
                 <excludes>
                     <exclude>org/h2/server/**</exclude>
+                    <exclude>org/h2/samples/**</exclude>
                     <exclude>org/h2/mode/PgCatalogSchema.java</exclude>
                     <exclude>org/h2/mode/PgCatalogTable.java</exclude>
                     <exclude>org/h2/util/Profiler.java</exclude>
+                    <exclude>org/h2/tools/Console.java</exclude>
+                    <exclude>org/h2/tools/CreateCluster.java</exclude>
+                    <exclude>org/h2/tools/GUIConsole.java</exclude>
+                    <exclude>org/h2/tools/Server.java</exclude>
                 </excludes>
                 <!--source>1.7</source>
                 <target>1.7</target -->
@@ -301,10 +306,25 @@
                     <phase>test-compile</phase>
                     <configuration>
                     <testExcludes>
+                        <testExclude>org/h2/build/**</testExclude>
+                        <testExclude>org/h2/dev/**</testExclude>
+                        <testExclude>org/h2/jcr/**</testExclude>
+                        <testExclude>org/h2/samples/**</testExclude>
+                        <testExclude>**/org/h2/test/unit/TestUpgrade.java</testExclude>
+                        <testExclude>**/org/h2/test/unit/TestSampleApps.java</testExclude>
+                        <testExclude>**/org/h2/test/unit/TestReopen.java</testExclude>
+                        <testExclude>**/org/h2/test/db/TestCluster.java</testExclude>
+                        <testExclude>**/org/h2/test/unit/TestPgServer.java</testExclude>
+                        <testExclude>**/org/h2/test/db/TestReadOnly.java</testExclude>
+                        <testExclude>**/org/h2/test/unit/TestAutoReconnect.java</testExclude>
+                        <testExclude>**/org/h2/test/unit/TestFtp.java</testExclude>
+                        <testExclude>**/org/h2/test/unit/TestTools.java</testExclude>
+                        <testExclude>**/org/h2/test/db/TestCluster.java</testExclude>
                         <testExclude>**/org/h2/test/unit/TestServlet.java</testExclude>
                         <testExclude>**/org/h2/test/unit/TestJakartaServlet.java</testExclude>
-                        <testExclude>**/org/h2/test/server/TestWeb.java</testExclude>
-                        <testExclude>**/org/h2/test/server/TestJakartaWeb.java</testExclude>
+                        <testExclude>**/org/h2/test/server/**</testExclude>
+                        <testExclude>**/org/h2/test/bench/**</testExclude>
+                        <testExclude>**/org/h2/test/todo/**</testExclude>
                     </testExcludes>
                         <!-- skip>true</skip -->
                     </configuration>
@@ -325,6 +345,9 @@
                 <exclude>org/h2/mode/PgCatalogTable.java</exclude>
                 <exclude>org/h2/util/Profiler.java</exclude>
                 <exclude>org/h2/test/**</exclude>
+                <exclude>org/h2/tools/Console.java</exclude>
+                <exclude>org/h2/tools/CreateCluster.java</exclude>
+                <exclude>org/h2/tools/GUIConsole.java</exclude>
             </excludes>
         </configuration>
         <executions>

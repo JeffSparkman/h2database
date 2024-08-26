@@ -54,7 +54,7 @@ import org.h2.tools.GUIConsole;
 import org.h2.tools.Recover;
 import org.h2.tools.Restore;
 import org.h2.tools.RunScript;
-import org.h2.tools.Script;
+//import org.h2.tools.Script;
 import org.h2.tools.Server;
 import org.h2.tools.SimpleResultSet;
 import org.h2.tools.SimpleResultSet.SimpleArray;

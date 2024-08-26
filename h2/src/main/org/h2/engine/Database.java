@@ -37,7 +37,7 @@ import org.h2.message.DbException;
 import org.h2.message.Trace;
 import org.h2.message.TraceSystem;
 import org.h2.mode.DefaultNullOrdering;
-import org.h2.mode.PgCatalogSchema;
+//import org.h2.mode.PgCatalogSchema;
 import org.h2.mvstore.MVStoreException;
 import org.h2.mvstore.db.LobStorageMap;
 import org.h2.mvstore.db.Store;
@@ -147,7 +147,7 @@ public final class Database implements DataHandler, CastDataProvider {
 
     private final Schema mainSchema;
     private final Schema infoSchema;
-    private final Schema pgCatalogSchema;
+//    private final Schema pgCatalogSchema;
     private int nextSessionId;
     private final AtomicInteger nextTempTableId = new AtomicInteger();
     private final User systemUser;
@@ -335,12 +335,12 @@ public final class Database implements DataHandler, CastDataProvider {
             infoSchema = new InformationSchema(this, systemUser);
             schemas.put(mainSchema.getName(), mainSchema);
             schemas.put(infoSchema.getName(), infoSchema);
-            if (mode.getEnum() == ModeEnum.PostgreSQL) {
-                pgCatalogSchema = new PgCatalogSchema(this, systemUser);
-                schemas.put(pgCatalogSchema.getName(), pgCatalogSchema);
-            } else {
-                pgCatalogSchema = null;
-            }
+//            if (mode.getEnum() == ModeEnum.PostgreSQL) {
+//                pgCatalogSchema = new PgCatalogSchema(this, systemUser);
+//                schemas.put(pgCatalogSchema.getName(), pgCatalogSchema);
+//            } else {
+//                pgCatalogSchema = null;
+//            }
             publicRole = new Role(this, 0, sysIdentifier(Constants.PUBLIC_ROLE_NAME), true);
             usersAndRoles.put(publicRole.getName(), publicRole);
             systemSession = createSession(systemUser);
@@ -2042,26 +2042,26 @@ public final class Database implements DataHandler, CastDataProvider {
 
     public void setQueryStatisticsMaxEntries(int n) {
         queryStatisticsMaxEntries = n;
-        if (queryStatisticsData != null) {
+//        if (queryStatisticsData != null) {
             synchronized (this) {
                 if (queryStatisticsData != null) {
                     queryStatisticsData.setMaxQueryEntries(queryStatisticsMaxEntries);
                 }
             }
-        }
+//        }
     }
 
     public QueryStatisticsData getQueryStatisticsData() {
         if (!queryStatistics) {
             return null;
         }
-        if (queryStatisticsData == null) {
+//        if (queryStatisticsData == null) {
             synchronized (this) {
                 if (queryStatisticsData == null) {
                     queryStatisticsData = new QueryStatisticsData(queryStatisticsMaxEntries);
                 }
             }
-        }
+//        }
         return queryStatisticsData;
     }
 

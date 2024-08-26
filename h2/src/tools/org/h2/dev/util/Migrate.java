@@ -20,7 +20,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.TimeUnit;
 
 import org.h2.engine.Constants;
-import org.h2.tools.RunScript;
+//import org.h2.tools.RunScript;
 
 /**
  * Migrate a H2 database version 1.1.x (page store not enabled) to 1.2.x (page
@@ -96,7 +96,7 @@ public class Migrate {
                 "-password", password
         });
         file.renameTo(new File(file.getAbsoluteFile() + ".backup"));
-        RunScript.execute(url, user, password, TEMP_SCRIPT, StandardCharsets.UTF_8, true);
+//        RunScript.execute(url, user, password, TEMP_SCRIPT, StandardCharsets.UTF_8, true);
         new File(TEMP_SCRIPT).delete();
     }
 
