@@ -393,8 +393,10 @@ public class ConnectionInfo implements Cloneable {
             password = np;
             fileEncryptionKey = FilePathEncrypt.getPasswordBytes(filePassword);
             filePasswordHash = hashPassword(passwordHash, "file", filePassword);
+            Arrays.fill(filePassword, (char) 0);
         }
         userPasswordHash = hashPassword(passwordHash, user, password);
+        Arrays.fill(password, (char) 0); 
     }
 
     private static byte[] hashPassword(boolean passwordHash, String userName,

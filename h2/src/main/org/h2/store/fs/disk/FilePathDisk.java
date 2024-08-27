@@ -480,7 +480,7 @@ public class FilePathDisk extends FilePath {
         Path file = Paths.get(name + '.').toAbsolutePath();
         String prefix = file.getFileName().toString();
         if (inTempDir) {
-            final Path tempDir = Paths.get(System.getProperty("java.io.tmpdir", "."));
+            final Path tempDir = Paths.get("."); //System.getProperty("java.io.tmpdir", "."));
             if (!Files.isDirectory(tempDir)) {
                 Files.createDirectories(tempDir);
             }

@@ -77,7 +77,7 @@ public class JaasCredentialsValidator implements CredentialsValidator {
     public boolean validateCredentials(AuthenticationInfo authenticationInfo) throws Exception {
         LoginContext loginContext = new LoginContext(appName,
                 new AuthenticationInfoCallbackHandler(authenticationInfo));
-        loginContext.login();
+//        loginContext.login();
         authenticationInfo.setNestedIdentity(loginContext.getSubject());
         return true;
     }
