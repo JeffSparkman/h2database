@@ -350,6 +350,7 @@
                 <exclude>org/h2/tools/Console.java</exclude>
                 <exclude>org/h2/tools/CreateCluster.java</exclude>
                 <exclude>org/h2/tools/GUIConsole.java</exclude>
+                <exclude>org/h2/tools/Server.java</exclude>
             </excludes>
         </configuration>
         <executions>
