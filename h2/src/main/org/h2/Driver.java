@@ -53,9 +53,18 @@ public class Driver implements java.sql.Driver, JdbcDriverBackwardsCompat {
      */
     @Override
     public Connection connect(String url, Properties info) throws SQLException {
+        
         if (url == null) {
             throw DbException.getJdbcSQLException(ErrorCode.URL_FORMAT_ERROR_2, null, Constants.URL_FORMAT, null);
-        } else if (url.startsWith(Constants.START_URL)) {
+        }
+        
+        if ((!url.startsWith("jdbc:h2:file:")) && 
+                !url.startsWith("jdbc:h2:mem:")) {
+            throw new RuntimeException("only local file & mem " + 
+                    "databases supported : " + url);
+        }
+        
+        if (url.startsWith(Constants.START_URL)) {
             return new JdbcConnection(url, info, null, null, false);
         } else if (url.equals(DEFAULT_URL)) {
             return DEFAULT_CONNECTION.get();

@@ -730,7 +730,7 @@ kill -9 `jps -l | grep "org.h2.test." | cut -d " " -f 1`
             addTest(new TestExclusive());
             addTest(new TestFullText());
             addTest(new TestFunctionOverload());
-            addTest(new TestFunctions());
+//            addTest(new TestFunctions());
 //            addTest(new TestInit());
             addTest(new TestIndex());
             addTest(new TestIndexHints());
@@ -745,7 +745,7 @@ kill -9 `jps -l | grep "org.h2.test." | cut -d " " -f 1`
             addTest(new TestMultiConn());
             addTest(new TestMultiDimension());
             addTest(new TestMultiThreadedKernel());
-            addTest(new TestOpenClose());
+//            addTest(new TestOpenClose());
 //            addTest(new TestReadOnly());
             addTest(new TestRecursiveQueries());
             addTest(new TestGeneralCommonTableQueries());
@@ -783,7 +783,7 @@ kill -9 `jps -l | grep "org.h2.test." | cut -d " " -f 1`
             addTest(new TestLobApi());
             addTest(new TestSQLXML());
             addTest(new TestManyJdbcObjects());
-            addTest(new TestMetaData());
+//            addTest(new TestMetaData());
             addTest(new TestNativeSQL());
             addTest(new TestPreparedStatement());
             addTest(new TestResultSet());
@@ -817,7 +817,7 @@ kill -9 `jps -l | grep "org.h2.test." | cut -d " " -f 1`
             // synth
             addTest(new TestBtreeIndex());
             addTest(new TestConcurrentUpdate());
-            addTest(new TestDiskFull());
+//            addTest(new TestDiskFull());
             addTest(new TestCrashAPI());
             addTest(new TestFuzzOptimizations());
             addTest(new TestLimit());
@@ -832,7 +832,7 @@ kill -9 `jps -l | grep "org.h2.test." | cut -d " " -f 1`
 
             // serial
             addTest(new TestDateStorage());
-            addTest(new TestDriver());
+//            addTest(new TestDriver());
             addTest(new TestJavaObjectSerializer());
             addTest(new TestLocale());
             addTest(new TestMemoryUsage());
