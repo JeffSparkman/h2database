@@ -103,8 +103,8 @@ public class Driver implements java.sql.Driver, JdbcDriverBackwardsCompat {
     @Override
     public Connection connect(String url, Properties info) throws SQLException {
         
-//        addConstraints(url, info);
-//        
+        addConstraints(url, info);
+        
         if (url == null) {
             throw DbException.getJdbcSQLException(ErrorCode.URL_FORMAT_ERROR_2, null, Constants.URL_FORMAT, null);
         }
