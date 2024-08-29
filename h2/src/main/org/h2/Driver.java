@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.DriverPropertyInfo;
 import java.sql.SQLException;
 import java.util.Properties;
+import java.util.Set;
 import java.util.logging.Logger;
 import org.h2.api.ErrorCode;
 import org.h2.engine.Constants;
@@ -41,6 +42,54 @@ public class Driver implements java.sql.Driver, JdbcDriverBackwardsCompat {
         load();
     }
 
+    
+    // this 'removes' features not supported by h2-lite
+    private void addConstraints(String url, Properties info) {
+        
+        String upperUrl = url.toUpperCase();
+        
+        Properties upperInfo = new Properties();
+        String keyStr;
+        for (Object key : info.keySet()) {
+            keyStr = ((String) key).toUpperCase();
+            upperInfo.put(keyStr, keyStr);
+        }
+                
+        if (upperUrl.contains("USER=") || upperInfo.containsKey("USER")) {
+            throw new RuntimeException("USER not supported in h2-lite.");
+        }
+        
+        if (upperUrl.contains("PASSWORD=") || upperInfo.containsKey("PASSWORD")) {
+            throw new RuntimeException("PASSWORD not supported in h2-lite.");
+        }
+        
+        if (upperUrl.contains("CIPHER=") || upperInfo.containsKey("CIPHER")) {
+            throw new RuntimeException("CIPHER not supported in h2-lite.");
+        }
+        
+        if (upperUrl.contains("JMX=") || upperInfo.containsKey("JMX")) {
+            throw new RuntimeException("JMX not supported in h2-lite.");
+        }
+        
+        if (upperUrl.contains("MODE=") || upperInfo.containsKey("MODE")) {
+            throw new RuntimeException("MODE not supported in h2-lite.");
+        }
+        
+        if (upperUrl.contains("AUTHREALM=") || upperInfo.containsKey("AUTHREALM")) {
+            throw new RuntimeException("AUTHREALM not supported in h2-lite.");
+        }
+        
+        if (upperUrl.contains("INIT=") || upperInfo.containsKey("INIT")) {
+            throw new RuntimeException("INIT not supported in h2-lite.");
+        }
+        
+        if (upperUrl.contains("AUTO_SERVER=") || upperInfo.containsKey("AUTO_SERVER")) {
+            throw new RuntimeException("AUTO_SERVER not supported in h2-lite.");
+        }
+        
+    }
+    
+    
     /**
      * Open a database connection.
      * This method should not be called by an application.
@@ -54,6 +103,8 @@ public class Driver implements java.sql.Driver, JdbcDriverBackwardsCompat {
     @Override
     public Connection connect(String url, Properties info) throws SQLException {
         
+//        addConstraints(url, info);
+//        
         if (url == null) {
             throw DbException.getJdbcSQLException(ErrorCode.URL_FORMAT_ERROR_2, null, Constants.URL_FORMAT, null);
         }
